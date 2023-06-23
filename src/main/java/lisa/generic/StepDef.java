@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lisa.page.object.model.LoginPage;
 
 public class StepDef {
 	WebDriver driver;
@@ -25,19 +26,19 @@ public class StepDef {
 
 	@When("Enter valid username")
 	public void enter_valid_username() {
-	    driver.findElement(By.xpath("//*[@id = 'username']")).sendKeys("Batch34");
+	    driver.findElement(LoginPage.username).sendKeys("Batch34");
 		
 	}
 
 	@When("Enter valid password")
 	public void enter_valid_password() {
 	    
-		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("student123@");
+		driver.findElement(LoginPage.password).sendKeys("student123@");
 	}
 
 	@When("Click login")
 	public void click_login() {
-		driver.findElement(By.xpath("//*[@type='submit']")).click();
+		driver.findElement(LoginPage.logIn).click();
 	    
 	}
 
@@ -51,7 +52,7 @@ public class StepDef {
 		
 		//sf.assertEquals(false, false);  //actual, expected - Soft Assert 
 		
-		sf.assertTrue(driver.findElement(By.xpath("//*[@id='logoutButton']")).isDisplayed());
+		sf.assertTrue(driver.findElement(LoginPage.logOut).isDisplayed());
 		sf.assertAll();
 	}
 	
