@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 
 //for reports
 @CucumberOptions(
-		plugin = { "json:target/cucumber.json" },
+		plugin = { "json:./target/cucumber.json" },
 		features = { "./src/test/resources/LogInOnlineBanking.feature" },
 		glue = { "lisa.generic" },  //package name
 		tags = "@Smoke"
